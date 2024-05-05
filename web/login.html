@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>病房信息管理系统</title>
+        <meta charset="UTF-8" name="viewport"
+            content="width=device-width, initial-scale=1.0" />
+        <style>
+            div.text_center {
+                text-align: center;
+                font-size: 20px;
+                margin-top: 0%;
+                margin-bottom: 20px; /* 增加div元素下方的间距 */
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                background-color: #007BFF;
+                color: #ffffff;
+                padding: 10px;
+            }
+            div.text_center:hover {
+                background-color: #0056b3;
+            }
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+                display: flex;
+                justify-content: center;
+                align-items: auto;
+                height: 100vh;
+                margin: 0;
+            }
+            form {
+                max-height: 300px;
+                background-color: #ffffff;
+                padding: 30px; /* 增加form元素内部的间距 */
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+                width: 250px; /* 设置form元素的宽度 */
+                margin: auto;
+            }
+            form:hover {
+                box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+            }
+            input[type="text"], input[type="password"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+                box-sizing: border-box;
+                border: 1px solid #cccccc;
+            }
+            input[type="submit"] {
+                width: 45%;
+                padding: 10px;
+                margin-bottom: 10px;
+                margin-right: 20px;
+                border-radius: 5px;
+                border: none;
+                color: #ffffff;
+                background-color: #007BFF;
+            }
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+            input.register-button {
+                width: 45%;
+                padding: 10px;
+                border-radius: 5px;
+                margin-bottom: 10px;
+                border: none;
+                color: #ffffff;
+                box-sizing: border-box;
+                background-color: #6c757d;
+            }
+            input.register-button:hover {
+                background-color: #5a6268;
+            }
+            input.forgot-password-button {
+                align-content: center;
+                width: 100%;
+                padding: 2px;
+                border-radius: 5px;
+                border: none;
+                color: #4d4b0d;
+                background-color: #ffffff;
+            }
+            input.forgot-password-button:hover {
+                color: #330b29;
+                font-style: italic;
+            }
+        </style>
+    </head>
+    <div id="info" class="text_center"> 病房信息管理系统，请登录... </div>
+    <body>
+        <form method="post" action="check.php">
+            <input type="text" id="username" name="username"
+                placeholder="用户名">
+            <input type="password" id="password" name="password"
+                placeholder="密码">
+            <input type="submit" value="登录">
+            <input type="button" class="register-button" value="注册"
+                onclick="window.location.href='register.html'">
+            <input type="button" class="forgot-password-button" value="忘记密码"
+                onclick="window.location.href='forgot_password.html'">
+        </form>
+    </body>
+</html>
