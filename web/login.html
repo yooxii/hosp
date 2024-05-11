@@ -95,13 +95,20 @@
     <div id="info" class="text_center"> 病房信息管理系统，请登录... </div>
     <body>
         <form method="post" action="check.php">
+
+            <label for="username">用户名:</label>
             <input type="text" id="username" name="username"
                 placeholder="用户名">
+
+            <label for="password">密码:</label>
             <input type="password" id="password" name="password"
                 placeholder="密码">
+
             <input type="submit" value="登录">
+
             <input type="button" class="register-button" value="注册"
                 onclick="window.location.href='register.html'">
+
             <input type="button" class="forgot-password-button" value="忘记密码"
                 onclick="window.location.href='forgot_password.html'">
         </form>

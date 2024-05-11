@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <title>医院病房管理系统</title>
+        <script src="jquery.js"></script>
+        <style>
+    body { font-family: Arial, sans-serif; }
+    .header { background-color: blue; color: white; padding: 10px; text-align: center; }
+    .content { display: flex;}
+    .menu { flex: 0.5; height: fit-content; padding: 20px; margin-top: 10px; border: 1px solid #000000; }
+    .menu-item { width: fit-content; height: fit-content;margin-top: 15px; cursor: pointer; }
+    .menu-item:hover { background-color: #3175c4; color: white; }
+    .menu-item.active { color: rgb(255, 255, 255); background-color: darkslategray;}
+    .menu-item-son { width: fit-content; height: fit-content; margin-left: 20px; margin-top: 5px; cursor: pointer; }
+    .menu-item-son:hover { background-color: #3175c4; color: white; }
+    .menu-item-son.active { color: rgb(255, 255, 255); background-color: darkslategray;}
+    .info { flex: 3; height:auto; padding: 20px; margin-top: 10px;}
+    .info-box { border: 1px solid #000; padding: 10px; margin-top: 20px; }
+</style>
+    </head>
+    <body>
+        <div class="header">
+            医院病房管理系统
+            <a href="..\index.html" style="float:right; color: white;">退出</a>
+        </div>
+        <div class="content">
+            <div class="menu">
+                <div class="menu-item active">首页</div>
+                <details>
+                    <summary class="menu-item">病房监控</summary>
+                    <div class="menu-item-son"
+                        onclick="changedate();ward_monitoring()">环境信息</div>
+                </details>
+                <details>
+                    <summary class="menu-item">用户管理</summary>
+                    <div class="menu-item-son"
+                        onclick="user_rigister()">用户注册</div>
+                    <div class="menu-item-son"
+                        onclick="user_management()">用户信息</div>
+                </details>
+                <details>
+                    <summary class="menu-item">病人信息管理</summary>
+                    <div class="menu-item-son"
+                        onclick="patientinfo_entry()">信息录入</div>
+                    <div class="menu-item-son"
+                        onclick="showpatientinfo()">信息管理</div>
+                </details>
+                <div class="menu-item" onclick="showalarm_info()">报警信息</div>
+            </div>
+            <div class="info" id="main_info"> </div>
+        </div>
+
+        <script>
+    // 获取所有的menu-item元素和menu-item-son元素
+    var menuItems = document.querySelectorAll('.menu-item');
+    var menuItemsSon = document.querySelectorAll('.menu-item-son');
+    
+    // 为每个菜单项添加点击事件监听器
+    menuItems.forEach(function(item) {
+        item.addEventListener('click', function() {
+        // 移除所有菜单项的active类
+        menuItems.forEach(function(item) {
+            item.classList.remove('active');
+        });
+        menuItemsSon.forEach(function(item) {
+            item.classList.remove('active');
+        });
+        
+        // 为点击的菜单项添加active类
+        this.classList.add('active');
+        });
+    });
+
+    menuItemsSon.forEach(function(item) {
+        item.addEventListener('click', function() {
+        // 移除所有菜单项的active类
+        menuItems.forEach(function(item) {
+            item.classList.remove('active');
+        });
+        menuItemsSon.forEach(function(item) {
+            item.classList.remove('active');
+        });
+        
+        // 为点击的菜单项添加active类
+        this.classList.add('active');
+        });
+    });
+
+    function requeirxmlhttp(){
+        if (window.XMLHttpRequest){
+            // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+            return new XMLHttpRequest();
+        }
+        else{
+            // IE6, IE5 浏览器执行代码
+            return new ActiveXObject("Microsoft.XMLHTTP");
+        }
+    }
+
+    function ward_monitoring(){
+        var xmlhttp = requeirxmlhttp();
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+            document.getElementById("main_info").innerHTML=xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET","getwardinfo.php?q=",true);
+        xmlhttp.send();
+    }
+
+    function user_rigister(){
+        var xmlhttp = requeirxmlhttp();
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+            document.getElementById("main_info").innerHTML="<iframe src='userregister.php' frameborder='0' width='100%' height='100%' name='reg_iframe'></iframe>";
+            document.getElementById("main_info").style.height="500px";
+            }
+        }
+        xmlhttp.open("GET","userregister.php?q=",true);
+        xmlhttp.send();
+    }
+
+    function changedate(){
+        var xmlhttp = requeirxmlhttp();
+        xmlhttp.open("GET","changedate.php?q=",true);
+        xmlhttp.send();
+    }
+
+    function user_management(){
+        var xmlhttp = requeirxmlhttp();
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+            document.getElementById("main_info").innerHTML=xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET","getusersinfo.php?q=",true);
+        xmlhttp.send();
+    }
+
+    function patientinfo_entry(){
+        var xmlhttp = requeirxmlhttp();
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+            document.getElementById("main_info").innerHTML="<iframe src='patientinfoentry.php' frameborder='0' width='100%' height='100%' name='reg_iframe'></iframe>";
+            document.getElementById("main_info").style.height="500px";
+            }
+        }
+        xmlhttp.open("GET","patientinfoentry.php?q=",true);
+        xmlhttp.send();
+    }
+
+    function showpatientinfo(){
+        var xmlhttp = requeirxmlhttp();
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+            document.getElementById("main_info").innerHTML=xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET","getpatientinfo.php?q=",true);
+        xmlhttp.send();
+    }
+    
+    function showalarm_info(){
+        var xmlhttp = requeirxmlhttp();
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+            document.getElementById("main_info").innerHTML=xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET","getalarminfo.php?q=",true);
+        xmlhttp.send();
+    }
+        </script>
+
+    </body>
+</html>
