@@ -124,3 +124,208 @@ UPDATE `ward_monitoring` SET `温度`='29',`湿度`='37' WHERE `No` = 1
 row:2
 UPDATE `ward_monitoring` SET `温度`='26',`湿度`='32' WHERE `No` = 2
 UPDATE `ward_monitoring` SET `温度`='30',`湿度`='32' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='36' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='35' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='30',`湿度`='39' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='36' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='32' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='38' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='30',`湿度`='40' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='34' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='31' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='34' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='39' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='33' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='30' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='40' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='39' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='33' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='32' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='34' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='37' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='39' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='33' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='30',`湿度`='38' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='32' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='29',`湿度`='39' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='29',`湿度`='34' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='29',`湿度`='39' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='37' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='35' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='29',`湿度`='30' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='30',`湿度`='33' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='30',`湿度`='40' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='32' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='29',`湿度`='38' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='36' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='30',`湿度`='31' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='30' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='30',`湿度`='34' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='32' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='39' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='37' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='32' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='37' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='35' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='29',`湿度`='38' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='30',`湿度`='38' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='39' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='33' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='30',`湿度`='34' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='29',`湿度`='39' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='39' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='38' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='39' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='39' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='31' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='33' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='29',`湿度`='35' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='38' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='39' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='32' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='34' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='35' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='34' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='29',`湿度`='34' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='35' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='38' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='30',`湿度`='34' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='33' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='30',`湿度`='31' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='38' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='35' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='30' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='36' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='33' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='37' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='37' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='33' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='35' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='33' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='32' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='29',`湿度`='39' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='31' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='35' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='32' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='39' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='33' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='37' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='29',`湿度`='35' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='40' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='40' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='30',`湿度`='34' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='40' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='36' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='37' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='32' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='30' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='35' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='39' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='35' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='29',`湿度`='31' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='40' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='36' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='38' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='34' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='40' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='35' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='30' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='29',`湿度`='39' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='39' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='38' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='37' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='39' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='33' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='31' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='29',`湿度`='31' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='39' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='31' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='29',`湿度`='36' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='37' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='40' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='36' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='30',`湿度`='35' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='38' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='40' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='29',`湿度`='38' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='37' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='34' WHERE `No` = 1
+row:2
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='40' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='31' WHERE `No` = 1
+row:3
+UPDATE `ward_monitoring` SET `温度`='30',`湿度`='32' WHERE `No` = 3
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='32' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='29',`湿度`='30' WHERE `No` = 1
+row:3
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='36' WHERE `No` = 3
+UPDATE `ward_monitoring` SET `温度`='28',`湿度`='33' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='27',`湿度`='40' WHERE `No` = 1
+row:4
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='34' WHERE `No` = 4
+UPDATE `ward_monitoring` SET `温度`='26',`湿度`='40' WHERE `No` = 3
+UPDATE `ward_monitoring` SET `温度`='25',`湿度`='35' WHERE `No` = 2
+UPDATE `ward_monitoring` SET `温度`='30',`湿度`='40' WHERE `No` = 1

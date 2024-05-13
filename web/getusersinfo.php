@@ -22,6 +22,7 @@ echo "<table border='1'>
     <th>联系电话</th>
     <th>权限等级</th>
     <th>创建时间</th>
+    <th>操作</th>
 </tr>";
 
 while ($row = mysqli_fetch_array($result)) {
@@ -32,6 +33,7 @@ while ($row = mysqli_fetch_array($result)) {
     echo "<td>" . $row['tel'] . "</td>";
     echo "<td>" . $row['level'] . "</td>";
     echo "<td>" . $row['created_time'] . "</td>";
+    echo "<td><a class='ctrl' href='edituserinfo.php?id=" . $row['No'] . "'>编辑</a> <a class='ctrl' href='deleteuserinfo.php?id=" . $row['No'] . "'>删除</a></td>";
     echo "</tr>";
 }
 echo "</table>";
