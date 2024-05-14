@@ -1,199 +1,317 @@
 <!DOCTYPE html>
 <html lang="zh">
-    <head>
-        <meta charset="UTF-8">
-        <title>医院病房后台管理系统</title>
-        <script src="jquery.js"></script>
-        <style>
-    body { font-family: Arial, sans-serif; }
-    .header { background-color: blue; color: white; padding: 10px; text-align: center; }
-    .content { display: flex;}
-    .menu { flex: 0.5; height: fit-content; padding: 20px; margin-top: 10px; border: 1px solid #000000; }
-    .menu-item { width: fit-content; height: fit-content;margin-top: 15px; cursor: pointer; }
-    .menu-item:hover { background-color: #3175c4; color: white; }
-    .menu-item.active { color: rgb(255, 255, 255); background-color: darkslategray;}
-    .menu-item-son { width: fit-content; height: fit-content; margin-left: 20px; margin-top: 5px; cursor: pointer; }
-    .menu-item-son:hover { background-color: #3175c4; color: white; }
-    .menu-item-son.active { color: rgb(255, 255, 255); background-color: darkslategray;}
-    .info { flex: 3; height:auto; padding: 20px; margin-top: 10px;}
-    .footer { background-color: blue; color: white; padding: 10px; text-align: center;position: absolute; bottom: 0; width: 100%;}
-</style>
-    </head>
-    <body>
-        <div class="header">
-            医院病房后台管理系统
-            <a href="..\index.html" style="float:right; color: white;">退出</a>
+
+<head>
+    <meta charset="UTF-8">
+    <title>医院病房后台管理系统</title>
+    <script src="jquery.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            height: auto;
+        }
+
+        .header {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .content {
+            display: flex;
+            height: 100%;
+        }
+
+        .menu {
+            flex: 0.5;
+            height: fit-content;
+            padding: 20px;
+            margin-top: 10px;
+            border: 1px solid #000000;
+        }
+
+        .menu-item {
+            width: fit-content;
+            height: fit-content;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            background-color: #3175c4;
+            color: white;
+        }
+
+        .menu-item.active {
+            color: rgb(255, 255, 255);
+            background-color: darkslategray;
+        }
+
+        .menu-item-son {
+            width: fit-content;
+            height: fit-content;
+            margin-left: 20px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+        .menu-item-son:hover {
+            background-color: #3175c4;
+            color: white;
+        }
+
+        .menu-item-son.active {
+            color: rgb(255, 255, 255);
+            background-color: darkslategray;
+        }
+
+        .info {
+            flex: 3;
+            height: auto;
+            padding: 20px;
+            margin-top: 10px;
+        }
+
+        .footer {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        div#output {
+            width: 100%;
+            /* display: none; */
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        医院病房后台管理系统
+        <a href="..\index.html" id="exit" style="float:right; color: white;">退出</a>
+    </div>
+    <div class="content">
+        <div class="menu">
+            <div class="menu-item active" id="start">首页</div>
+            <details>
+                <summary class="menu-item">病房监控</summary>
+                <div class="menu-item-son" onclick="changedate();ward_monitoring()">病房信息</div>
+                <div class="menu-item-son" onclick="showalarm_info()">报警信息</div>
+            </details>
+            <details>
+                <summary class="menu-item">用户管理</summary>
+                <div class="menu-item-son" onclick="user_rigister()">用户注册</div>
+                <div class="menu-item-son" onclick="user_management()">用户信息</div>
+            </details>
+            <details>
+                <summary class="menu-item">病人信息管理</summary>
+                <div class="menu-item-son" onclick="patientinfo_entry()">信息录入</div>
+                <div class="menu-item-son" onclick="showpatientinfo()">信息管理</div>
+            </details>
+            <details>
+                <summary class="menu-item">区域管理</summary>
+                <div class="menu-item-son" onclick="showalarm_info()">区域管理</div>
+            </details>
         </div>
-        <div class="content">
-            <div class="menu">
-                <div class="menu-item active">首页</div>
-                <details>
-                    <summary class="menu-item">病房监控</summary>
-                    <div class="menu-item-son"
-                        onclick="changedate();ward_monitoring()">病房信息</div>
-                    <div class="menu-item-son"
-                        onclick="showalarm_info()">报警信息</div>
-                </details>
-                <details>
-                    <summary class="menu-item">用户管理</summary>
-                    <div class="menu-item-son"
-                        onclick="user_rigister()">用户注册</div>
-                    <div class="menu-item-son"
-                        onclick="user_management()">用户信息</div>
-                </details>
-                <details>
-                    <summary class="menu-item">病人信息管理</summary>
-                    <div class="menu-item-son"
-                        onclick="patientinfo_entry()">信息录入</div>
-                    <div class="menu-item-son"
-                        onclick="showpatientinfo()">信息管理</div>
-                </details>
-                <details>
-                    <summary class="menu-item">区域管理</summary>
-                    <div class="menu-item-son"
-                        onclick="showalarm_info()">区域管理</div>
-                </details>
-            </div>
-            <div class="info" id="main_info"> </div>
+        <div class="info" id="main_info">
+            <div id="output"> 000 </div>
         </div>
+    </div>
 
-        <div class="footer">
-            <p>© 2024 医院病房后台管理系统</p>
-        </div>
+    <div class="footer">
+        <p>© 2024 医院病房后台管理系统</p>
+    </div>
 
-        <script>
-    // 获取所有的menu-item元素和menu-item-son元素
-    var menuItems = document.querySelectorAll('.menu-item');
-    var menuItemsSon = document.querySelectorAll('.menu-item-son');
-    
-    // 为每个菜单项添加点击事件监听器
-    menuItems.forEach(function(item) {
-        item.addEventListener('click', function() {
-        // 移除所有菜单项的active类
-        menuItems.forEach(function(item) {
-            item.classList.remove('active');
-        });
-        menuItemsSon.forEach(function(item) {
-            item.classList.remove('active');
-        });
-        
-        // 为点击的菜单项添加active类
-        this.classList.add('active');
-        });
-    });
+    <script>
+        // 获取所有的menu-item元素和menu-item-son元素
+        var menuItems = document.querySelectorAll('.menu-item');
+        var menuItemsSon = document.querySelectorAll('.menu-item-son');
 
-    menuItemsSon.forEach(function(item) {
-        item.addEventListener('click', function() {
-        // 移除所有菜单项的active类
-        menuItems.forEach(function(item) {
-            item.classList.remove('active');
-        });
-        menuItemsSon.forEach(function(item) {
-            item.classList.remove('active');
-        });
-        
-        // 为点击的菜单项添加active类
-        this.classList.add('active');
-        });
-    });
+        // 为每个菜单项添加点击事件监听器
+        menuItems.forEach(function (item) {
+            item.addEventListener('click', function () {
+                // 移除所有菜单项的active类
+                menuItems.forEach(function (item) {
+                    item.classList.remove('active');
+                });
+                menuItemsSon.forEach(function (item) {
+                    item.classList.remove('active');
+                });
 
-    function requeirxmlhttp(){
-        if (window.XMLHttpRequest){
-            // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
-            return new XMLHttpRequest();
-        }
-        else{
-            // IE6, IE5 浏览器执行代码
-            return new ActiveXObject("Microsoft.XMLHTTP");
-        }
-    }
+                // 为点击的菜单项添加active类
+                this.classList.add('active');
+            });
+        });
 
-    function ward_monitoring(){
-        var xmlhttp = requeirxmlhttp();
-        xmlhttp.onreadystatechange=function()
-        {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-            document.getElementById("main_info").innerHTML=xmlhttp.responseText;
+        menuItemsSon.forEach(function (item) {
+            item.addEventListener('click', function () {
+                // 移除所有菜单项的active类
+                menuItems.forEach(function (item) {
+                    item.classList.remove('active');
+                });
+                menuItemsSon.forEach(function (item) {
+                    item.classList.remove('active');
+                });
+
+                // 为点击的菜单项添加active类
+                this.classList.add('active');
+            });
+        });
+
+        function requeirxmlhttp() {
+            if (window.XMLHttpRequest) {
+                // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                return new XMLHttpRequest();
+            }
+            else {
+                // IE6, IE5 浏览器执行代码
+                return new ActiveXObject("Microsoft.XMLHTTP");
             }
         }
-        xmlhttp.open("GET","getwardinfo.php?q=",true);
-        xmlhttp.send();
-    }
 
-    function user_rigister(){
-        var xmlhttp = requeirxmlhttp();
-        xmlhttp.onreadystatechange=function()
-        {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-            document.getElementById("main_info").innerHTML="<iframe src='userregister.php' frameborder='0' width='100%' height='100%' name='reg_iframe'></iframe>";
-            document.getElementById("main_info").style.height="500px";
+        function ward_monitoring() {
+            var xmlhttp = requeirxmlhttp();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("main_info").innerHTML = xmlhttp.responseText;
+                }
             }
+            xmlhttp.open("GET", "getwardinfo.php?q=", true);
+            xmlhttp.send();
         }
-        xmlhttp.open("GET","userregister.php?q=",true);
-        xmlhttp.send();
-    }
 
-    function changedate(){
-        var xmlhttp = requeirxmlhttp();
-        xmlhttp.open("GET","changedate.php?q=",true);
-        xmlhttp.send();
-    }
-
-    function user_management(){
-        var xmlhttp = requeirxmlhttp();
-        xmlhttp.onreadystatechange=function()
-        {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-            document.getElementById("main_info").innerHTML=xmlhttp.responseText;
+        function user_rigister() {
+            var xmlhttp = requeirxmlhttp();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("main_info").innerHTML = "<iframe src='userregister.php' frameborder='0' width='100%' height='100%' name='reg_iframe'></iframe>";
+                    document.getElementById("main_info").style.height = window.innerHeight * 0.8 + "px";
+                }
             }
+            xmlhttp.open("GET", "userregister.php?q=", true);
+            xmlhttp.send();
         }
-        xmlhttp.open("GET","getusersinfo.php?q=",true);
-        xmlhttp.send();
-    }
 
-    function patientinfo_entry(){
-        var xmlhttp = requeirxmlhttp();
-        xmlhttp.onreadystatechange=function()
-        {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-            document.getElementById("main_info").innerHTML="<iframe src='patientinfoentry.php' frameborder='0' width='100%' height='100%' name='reg_iframe'></iframe>";
-            document.getElementById("main_info").style.height="500px";
-            }
+        function changedate() {
+            var xmlhttp = requeirxmlhttp();
+            xmlhttp.open("GET", "changedate.php?q=", true);
+            xmlhttp.send();
         }
-        xmlhttp.open("GET","patientinfoentry.php?q=",true);
-        xmlhttp.send();
-    }
 
-    function showpatientinfo(){
-        var xmlhttp = requeirxmlhttp();
-        xmlhttp.onreadystatechange=function()
-        {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-            document.getElementById("main_info").innerHTML=xmlhttp.responseText;
+        function user_management() {
+            var xmlhttp = requeirxmlhttp();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("main_info").innerHTML = xmlhttp.responseText;
+                }
             }
+            xmlhttp.open("GET", "getusersinfo.php?q=", true);
+            xmlhttp.send();
         }
-        xmlhttp.open("GET","getpatientinfo.php?q=",true);
-        xmlhttp.send();
-    }
-    
-    function showalarm_info(){
-        var xmlhttp = requeirxmlhttp();
-        xmlhttp.onreadystatechange=function()
-        {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-            document.getElementById("main_info").innerHTML=xmlhttp.responseText;
-            }
-        }
-        xmlhttp.open("GET","getalarminfo.php?q=",true);
-        xmlhttp.send();
-    }
-        </script>
 
-    </body>
+        function patientinfo_entry() {
+            var xmlhttp = requeirxmlhttp();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("main_info").innerHTML = "<iframe src='patientinfoentry.php' frameborder='0' width='100%' height='100%' name='reg_iframe'></iframe>";
+                    document.getElementById("main_info").style.height = window.innerHeight * 0.8 + "px";
+                }
+            }
+            xmlhttp.open("GET", "patientinfoentry.php?q=", true);
+            xmlhttp.send();
+        }
+
+        function showpatientinfo() {
+            var xmlhttp = requeirxmlhttp();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("main_info").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", "getpatientinfo.php?q=", true);
+            xmlhttp.send();
+        }
+
+        function showalarm_info() {
+            var xmlhttp = requeirxmlhttp();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("main_info").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", "getalarminfo.php?q=", true);
+            xmlhttp.send();
+        }
+        /*** butConnect listener below ***/
+        let keepReading = true;
+        let reader;
+        let writer;
+        // all data parsed are stored in a list ordered by received time of the data frame.
+        let receivedframe = [];
+
+        document.getElementById("start").addEventListener("click", async () => {
+            const port = await navigator.serial.requestPort();
+            await port.open({
+                baudRate: 115200
+            }); // set baud rate
+            keepReading = true;
+            reader = port.readable.getReader();
+            writer = port.writable.getWriter();
+
+            while (port.readable && keepReading) {
+                try {
+                    while (true) {
+                        receivedframe = [];
+                        const {
+                            value,
+                            done
+                        } = await reader.read();
+                        if (done) {
+                            // Allow the serial port to be closed later.
+                            break;
+                        }
+                        // Value is a Uint8Array.
+                        console.log(value);
+                        receivedframe.push(value);
+                        document.getElementById("output").innerText = receivedframe;
+                        // 把数据传给后台php处理
+                        var xmlhttp = requeirxmlhttp();
+                        xmlhttp.onreadystatechange = function () {
+                            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                                console.log(xmlhttp.responseText);
+                            }
+                        }
+                        xmlhttp.open("POST", "datadeal.php", true);
+                        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                        xmlhttp.send("q=" + receivedframe);
+                    }
+                } catch (error) {
+                    // Handle non-fatal read error.
+                    console.error(error);
+                } finally {
+                    console.log(port.readable, keepReading);
+                }
+            }
+            reader.releaseLock();
+            await port.close();
+            console.log("port closed");
+        });
+        /*** butConnect listener above ***/
+        /*** butEnd listener below ***/
+        document.getElementById("exit").addEventListener("click", async () => {
+            keepReading = false;
+            writer.releaseLock();
+            console.log("reader and writer aborted");
+        });
+        /*** butEnd listener above ***/
+    </script>
+
+</body>
+
 </html>

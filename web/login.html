@@ -1,146 +1,274 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title>病房后台管理系统</title>
-        <meta charset="UTF-8" name="viewport"
-            content="width=device-width, initial-scale=1.0" />
-        <style>
-            body { background-image: url('../img/4.jpg'); background-size: contain; background-repeat: no-repeat; background-attachment: fixed; background-position: right bottom; }
-            div.text_center { text-align: center; font-size: 20px; margin-top: 0%; margin-bottom: 20px; /* 增加div元素下方的间距 */ position: absolute; top: 0; left: 0; right: 0; background-color: #007BFF; color: #ffffff; padding: 10px; }
-            div.text_center:hover { background-color: #0056b3; }
-            body { font-family: Arial, sans-serif; background-color: #f0f0f0; display: flex; justify-content: center; align-items: auto; height: 100vh; margin: 0; } form { max-height: 300px; background-color: #ffffff; padding: 30px; /* 增加form元素内部的间距 */ border-radius: 10px; box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); width: 250px; /* 设置form元素的宽度 */ margin: auto; }
-            form:hover { box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2); }
-            input[type="text"], input[type="password"] { width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; box-sizing: border-box; border: 1px solid #cccccc; }
-            input[type="submit"] { width: 45%; padding: 10px; margin-bottom: 10px; margin-right: 20px; border-radius: 5px; border: none; color: #ffffff; background-color: #007BFF; }
-            input[type="submit"]:hover { background-color: #0056b3; }
-            input.register-button { width: 45%; padding: 10px; border-radius: 5px; margin-bottom: 10px; border: none; color: #ffffff; box-sizing: border-box; background-color: #6c757d; }
-            input.register-button:hover { background-color: #5a6268; }
-            input.forgot-password-button { align-content: center; width: 100%; padding: 2px; border-radius: 5px; border: none; color: #4d4b0d; background-color: #ffffff; }
-            input.forgot-password-button:hover { color: #330b29; font-style: italic; }
-            input#text { width: 65%; padding: 10px; border-radius: 5px; border: none; color: #ffffff; background-color: #e4e4e4; }
-            input#text:hover { background-color: #cccccc; }
-            input#bt { width: 25%; height: 30px; border-radius: 5px; border: none; color: #ffffff; text-align: center; background-color: #7c9bbd; }
-            input#bt:hover { background-color: #5a6268; }
-            canvas#canvas { border: none; }
-            canvas#canvas:hover { cursor: pointer; }
-            div.yzm { align-content: center; padding: 0px 80px 0px 80px; }
-        </style>
-    </head>
-    <body>
-        <div id="info" class="text_center"> 病房后台管理系统，请登录... </div>
-        <form method="post" action="check.php">
 
-            <label for="username">用户名:</label>
-            <input type="text" id="username" name="username"
-                placeholder="用户名">
+<head>
+    <title>病房后台管理系统</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            background-image: url('../img/4.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: right bottom;
+        }
 
-            <label for="password">密码:</label>
-            <input type="password" id="password" name="password"
-                placeholder="密码">
+        div.text_center {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 0%;
+            margin-bottom: 20px;
+            /* 增加div元素下方的间距 */
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #007BFF;
+            color: #ffffff;
+            padding: 10px;
+        }
 
-            <div  style="display: flex; align-items: center;"></div>
-            <div>验证码:</div>
-                <div class="yzm" style="width: fit-content; height: fit-content;">
-                    <canvas id="canvas" width="90" height="35"></canvas>
-                </div>
-                <input type="text" id="text">
-                <input type="button" value="提交" id="bt">
-            </div>
+        div.text_center:hover {
+            background-color: #0056b3;
+        }
 
-            <div>
-                <input type="submit" id="login" value="登录">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: auto;
+            height: 100vh;
+            margin: 0;
+        }
 
-                <input type="button" class="register-button" value="注册"
-                    onclick="window.location.href='register.html'">
-            </div>
+        form {
+            max-height: 300px;
+            background-color: #ffffff;
+            padding: 30px;
+            /* 增加form元素内部的间距 */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            /* 设置form元素的宽度 */
+            margin: auto;
+        }
 
-            <input type="button" class="forgot-password-button" value="忘记密码"
-                onclick="window.location.href='forgot_password.html'">
-        </form>
+        form:hover {
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+        }
 
-    </body>
-    <script>
-        var width = document.getElementById("canvas").width, height = document.getElementById("canvas").height;//设置画布的宽高
-        var canvas = document.getElementById("canvas");//演员
-        var context = canvas.getContext("2d");//舞台，getContext() 方法可返回一个对象，该对象提供了用于在画布上绘图的方法和属性。
-        var button = document.getElementById("bt");//获取按钮
-        var input = document.getElementById("text");//获取输入框
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #f8f8f8;
+            border: 1px solid #cccccc;
+        }
+
+        input[type="submit"] {
+            width: 45%;
+            padding: 10px;
+            margin-bottom: 10px;
+            margin-right: 20px;
+            border-radius: 4px;
+            border: none;
+            color: #ffffff;
+            background-color: #4CAF50;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        input.register-button {
+            width: 45%;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            border: none;
+            color: #ffffff;
+            box-sizing: border-box;
+            background-color: #6c757d;
+        }
+
+        input.register-button:hover {
+            background-color: #5a6268;
+        }
+
+        input.forgot-password-button {
+            align-content: center;
+            width: 100%;
+            padding: 2px;
+            border-radius: 5px;
+            border: none;
+            color: #4d4b0d;
+            background-color: #ffffff;
+        }
+
+        input.forgot-password-button:hover {
+            color: #330b29;
+            font-style: italic;
+        }
+
+        input#text {
+            width: 65%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            color: #ffffff;
+            background-color: #e4e4e4;
+        }
+
+        input#text:hover {
+            background-color: #cccccc;
+        }
+
+        input#bt {
+            width: 25%;
+            height: 30px;
+            border-radius: 5px;
+            border: none;
+            color: #ffffff;
+            text-align: center;
+            background-color: #7c9bbd;
+        }
+
+        input#bt:hover {
+            background-color: #5a6268;
+        }
+
+        canvas#canvas {
+            border: none;
+        }
+
+        canvas#canvas:hover {
+            cursor: pointer;
+        }
+
+        div.yzm {
+            align-content: center;
+            padding: 0px 80px 0px 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="info" class="text_center"> 病房后台管理系统，请登录... </div>
+    <form method="post" action="check.php">
+
+        <label for="username">用户名:</label>
+        <input type="text" id="username" name="username" placeholder="用户名">
+
+        <label for="password">密码:</label>
+        <input type="password" id="password" name="password" placeholder="密码">
+
+        <div style="display: flex; align-items: center;"></div>
+        <div>验证码:</div>
+        <div class="yzm" style="width: fit-content; height: fit-content;">
+            <canvas id="canvas" width="90" height="35"></canvas>
+        </div>
+        <input type="text" id="text">
+        <input type="button" value="提交" id="bt">
+        </div>
+
+        <div>
+            <input type="submit" id="login" value="登录">
+
+            <input type="button" class="register-button" value="注册" onclick="window.location.href='register.html'">
+        </div>
+
+        <input type="button" class="forgot-password-button" value="忘记密码"
+            onclick="window.location.href='forgot_password.html'">
+    </form>
+
+</body>
+<script>
+    var width = document.getElementById("canvas").width, height = document.getElementById("canvas").height;//设置画布的宽高
+    var canvas = document.getElementById("canvas");//演员
+    var context = canvas.getContext("2d");//舞台，getContext() 方法可返回一个对象，该对象提供了用于在画布上绘图的方法和属性。
+    var button = document.getElementById("bt");//获取按钮
+    var input = document.getElementById("text");//获取输入框
+    draw();
+    // 阻止表单提交
+    document.getElementById("login").onclick = function () {
+        alert('请先完成验证')
+        return false;
+    }
+    canvas.onclick = function () {
+        context.clearRect(0, 0, width, height);//在给定的矩形内清除指定的像素
         draw();
-        // 阻止表单提交
-        document.getElementById("login").onclick = function () {
-            alert('请先完成验证')
-            return false;
+    }
+    // 随机颜色函数
+    function getColor() {
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        return "rgb(" + r + "," + g + "," + b + ")";
+    }
+    function draw() {
+        context.strokeRect(0, 0, width, height);//绘制矩形（无填充）
+        var aCode = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
+        // 绘制字母
+        var arr = [] //定义一个数组用来接收产生的随机数
+        var num //定义容器接收验证码
+        for (var i = 0; i < 4; i++) {
+            var x = 12 + i * 16;//每个字母之间间隔16
+            var y = 8 + 18 * Math.random();//y轴方向位置为12-30随机
+            var index = Math.floor(Math.random() * aCode.length);//随机索引值
+            var txt = aCode[index];
+            context.font = "bold 20px 微软雅黑";//设置或返回文本内容的当前字体属性
+            context.fillStyle = getColor();//设置或返回用于填充绘画的颜色、渐变或模式，随机
+            context.translate(x, y);//重新映射画布上的 (0,0) 位置，字母不可以旋转移动，所以移动容器
+            var deg = 90 * Math.random() * Math.PI / 180;//0-90度随机旋转
+            context.rotate(deg);// 	旋转当前绘图
+            context.fillText(txt, 0, 0);//在画布上绘制“被填充的”文本
+            context.rotate(-deg);//将画布旋转回初始状态
+            context.translate(-x, -y);//将画布移动回初始状态
+            arr[i] = txt //接收产生的随机数
         }
-        canvas.onclick = function () {
-            context.clearRect(0, 0, width, height);//在给定的矩形内清除指定的像素
-            draw();
+        num = arr[0] + arr[1] + arr[2] + arr[3] //将产生的验证码放入num
+        // 绘制干扰线条
+        for (var i = 0; i < 8; i++) {
+            context.beginPath();//起始一条路径，或重置当前路径
+            context.moveTo(Math.random() * width, Math.random() * height);//把路径移动到画布中的随机点，不创建线条
+            context.lineTo(Math.random() * width, Math.random() * height);//添加一个新点，然后在画布中创建从该点到最后指定点的线条
+            context.strokeStyle = getColor();//随机线条颜色
+            context.stroke();// 	绘制已定义的路径
         }
-        // 随机颜色函数
-        function getColor() {
-            var r = Math.floor(Math.random() * 256);
-            var g = Math.floor(Math.random() * 256);
-            var b = Math.floor(Math.random() * 256);
-            return "rgb(" + r + "," + g + "," + b + ")";
+        // 绘制干扰点，和上述步骤一样，此处用长度为1的线代替点
+        for (var i = 0; i < 20; i++) {
+            context.beginPath();
+            var x = Math.random() * width;
+            var y = Math.random() * height;
+            context.moveTo(x, y);
+            context.lineTo(x + 1, y + 1);
+            context.strokeStyle = getColor();
+            context.stroke();
         }
-        function draw() {
-            context.strokeRect(0, 0, width, height);//绘制矩形（无填充）
-            var aCode = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
-            // 绘制字母
-            var arr = [] //定义一个数组用来接收产生的随机数
-            var num //定义容器接收验证码
-            for (var i = 0; i < 4; i++) {
-                var x = 12 + i * 16;//每个字母之间间隔16
-                var y = 8 + 18 * Math.random();//y轴方向位置为12-30随机
-                var index = Math.floor(Math.random() * aCode.length);//随机索引值
-                var txt = aCode[index];
-                context.font = "bold 20px 微软雅黑";//设置或返回文本内容的当前字体属性
-                context.fillStyle=getColor();//设置或返回用于填充绘画的颜色、渐变或模式，随机
-                context.translate(x,y);//重新映射画布上的 (0,0) 位置，字母不可以旋转移动，所以移动容器
-                var deg=90*Math.random()*Math.PI/180;//0-90度随机旋转
-                context.rotate(deg);// 	旋转当前绘图
-                context.fillText(txt, 0, 0);//在画布上绘制“被填充的”文本
-                context.rotate(-deg);//将画布旋转回初始状态
-                context.translate(-x,-y);//将画布移动回初始状态
-                arr[i] = txt //接收产生的随机数
-            }
-            num = arr[0] + arr[1] + arr[2] + arr[3] //将产生的验证码放入num
-            // 绘制干扰线条
-            for (var i = 0; i < 8; i++) {
-                context.beginPath();//起始一条路径，或重置当前路径
-                context.moveTo(Math.random() * width, Math.random() * height);//把路径移动到画布中的随机点，不创建线条
-                context.lineTo(Math.random() * width, Math.random() * height);//添加一个新点，然后在画布中创建从该点到最后指定点的线条
-                context.strokeStyle=getColor();//随机线条颜色
-                context.stroke();// 	绘制已定义的路径
-            }
-            // 绘制干扰点，和上述步骤一样，此处用长度为1的线代替点
-            for (var i = 0; i < 20; i++) {
-                context.beginPath();
-                var x = Math.random() * width;
-                var y = Math.random() * height;
-                context.moveTo(x, y);
-                context.lineTo(x + 1, y + 1);
-                context.strokeStyle=getColor();
-                context.stroke();
-            }
 
-            //点击按钮验证
-            button.onclick = function () {
-                var text = input.value //获取输入框的值
-                if (text === num) {
-                    alert('验证通过')
-                    // 允许表单提交
-                    document.getElementById("login").onclick = function () {
-                        return true;
-                    }
-                } else {
-                    alert('验证失败')
-                    document.getElementById("text").value = "";//清空输入框
+        //点击按钮验证
+        button.onclick = function () {
+            var text = input.value //获取输入框的值
+            if (text === num) {
+                alert('验证通过')
+                // 允许表单提交
+                document.getElementById("login").onclick = function () {
+                    return true;
                 }
+            } else {
+                alert('验证失败')
+                document.getElementById("text").value = "";//清空输入框
             }
-
-            button
-
         }
-    </script>
+
+        button
+
+    }
+</script>
+
 </html>

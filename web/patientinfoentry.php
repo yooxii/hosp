@@ -32,40 +32,71 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <style>
     form {
-        width: fit-content;
+        width: 100%;
         margin: auto;
+        background-color: #f8f8f8;
+        padding: 10px;
+        /* 减少内边距 */
+        border-radius: 2px;
+        /* 减少边框半径 */
+        font-family: Arial, sans-serif;
     }
 
     table {
-        width: fit-content;
+        width: 100%;
         margin: auto;
+        border-collapse: collapse;
+        background-color: #f2f2f2;
     }
 
     td {
-        width: fit-content;
-        padding: 1px;
+        padding: 5px;
+        /* 减少内边距 */
         text-align: left;
+        border: 1px solid #ccc;
+        background-color: #fff;
     }
 
-    .bigtext {
-        width: 100%;
-        height: 50px;
-        padding: 5px 5px 5px 5px;
-    }
-
-    .smalltext {
-        width: 100%;
-        padding: 5px 5px 5px 5px;
-    }
-
+    .bigtext,
+    .smalltext,
     textarea {
         width: 100%;
+        padding: 5px;
         height: 50px;
-        padding: 5px 5px 5px 5px;
+        /* 减少高度 */
+    }
+
+    .submit-button {
+        width: fit-content;
+        padding: 5px;
+        /* 减少内边距 */
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 2px;
+        /* 减少边框半径 */
+    }
+
+    .submit-button:hover {
+        background-color: #45a049;
+    }
+
+    .bar {
+        width: 100%;
+        margin: 5px;
+        text-align: center;
+        border: 1px solid #ced4da;
+        background-color: #e9ecef;
+        font-size: large;
+        padding: 5px;
+        /* 减少内边距 */
+        border-radius: 2px;
+        /* 减少边框半径 */
     }
 </style>
-<div style='width: fit-content; margin: auto;'>
-    <div style='width: 100%; margin: auto;text-align: center; border: 1px solid #000;background-color: rgb(122, 228, 228);font-size:large;'>病人信息录入</div>
+<div style='width: 45%; margin: auto;'>
+    <div class="bar">病人信息录入</div>
     <form id='regform' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>' target="reg_iframe" method='post'>
         <table border='1px'>
             <tr>

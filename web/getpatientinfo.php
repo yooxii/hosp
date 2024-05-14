@@ -7,8 +7,9 @@
     th,
     td {
         border: 1px solid #ddd;
-        padding: 8px;
+        padding: 2px;
         text-align: left;
+        word-wrap: break-word;
     }
 
     tr:nth-child(even) {
@@ -26,8 +27,19 @@
         border: 1px solid black;
         background-color: darkslategray;
     }
+
+    .bar {
+        width: 100%;
+        margin: 5px;
+        text-align: center;
+        border: 1px solid #ced4da;
+        /* 更淡的灰色 */
+        background-color: #e9ecef;
+        /* 更淡的灰色 */
+        font-size: large;
+    }
 </style>
-<table border='1'>
+<table>
     <tr>
         <th>id</th>
         <th>姓名</th>
@@ -41,15 +53,12 @@
         <th>录入时间</th>
         <th>操作</th>
     </tr>
-    <?php
-
-    echo "<div style='width: fit-content;'>病人信息列表</div>
+    <div class="bar">病人信息列表</div>
     <form action=''>
         <input type='text' placeholder='请输入病人姓名' style='width: fit-content;padding: 5px;'>
         <input type='submit' value='查询' style='width: fit-content; padding: 5px;'>
     </form>
-
-    <table border='1px'>";
+    <?php
 
     include('mysqlserver.php'); //链接数据库
 
@@ -70,9 +79,9 @@
         echo "<td>" . $row['用药信息'] . "</td>";
         echo "<td>" . $row['录入时间'] . "</td>";
         echo "<td><a class='ctrl' href='editpatientinfo.php?id=" . $row['id'] . "'>编辑</a> <a class='ctrl' href='deletepatientinfo.php?id=" . $row['id'] . "'>删除</a></td>";
+        echo "</tr>";
     }
 
     $conn->close();
     ?>
-    </tr>
 </table>
